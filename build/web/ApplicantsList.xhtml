@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>All Applicants</title>
+    </h:head>
+    <h:body>
+        <h1>Applicants</h1>
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+
+                        <th>National Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Password</th>
+                        <th>Gender</th>
+                        <th>Date Of birth</th>
+                        <th>Address</th>
+                        <th>Telephone</th>
+
+                        <th>Department</th>
+                        <th>Delete Applicant</th>
+                        <th>Approve Applicant</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <ui:repeat value="#{applicantModel.applicants}" var="a">
+                        <tr>
+                            <td>#{a.nationalId}</td>
+                            <td>#{a.firstName}</td>
+                            <td>#{a.lastName}</td>
+                            <td>#{a.password}</td>
+                            <td>#{a.gender}</td>
+                            <td>#{a.dateOfBirth}</td>
+                            <td>#{a.address}</td>
+                            <td>#{a.telephone}</td>
+                            <td>#{a.department}</td>
+
+                            <td>
+                                <h:form>
+                                    <h:commandButton style="background-color: palevioletred; color: white" value="Delete Applicant" action="#{applicantModel.deleteApplicant(a)}" />
+
+                                </h:form>
+                            </td>
+                            <td>
+                                <h:form>
+                                    <h:commandButton style ="background-color: green; color: white" value="Approve Applicant" action="Applicants.xhtml?faces=redirect"/>
+                                </h:form>
+
+                            </td>
+
+
+
+                        </tr>
+                    </ui:repeat>
+                </tbody>
+            </table>
+
+        </div>
+
+    </h:body>
+</html>
+

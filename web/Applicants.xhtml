@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TV Manufactured Industry</title>
+    </h:head>
+    <h:body>
+        <div>
+            <h1>New Applicants</h1>
+        </div>
+
+        <div>
+            <h:form>
+                <h:panelGrid columns="2"> 
+                    <div>
+                        <label>National Id</label>
+                        <h:inputText value="#{applicantModel.applicant.nationalId}"/>
+                    </div>
+                    <div>
+                        <label>First Name</label>
+                        <h:inputText value="#{applicantModel.applicant.firstName}"/>
+                    </div>
+
+                    <div>
+                        <label>Last Name</label>
+                        <h:inputText value="#{applicantModel.applicant.lastName}"/>
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <h:inputText value="#{applicantModel.applicant.password}"/>
+                    </div>
+                    <div>
+                        <label>Gender</label>
+                        <h:selectOneMenu  value="#{applicantModel.applicant.gender}">
+                            <f:selectItem itemValue="male" itemLabel="MALE"/>
+                            <f:selectItem itemValue="female" itemLabel="FEMALE"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div>
+                        <label>Date Of Birth</label>
+                        <h:inputText value="#{applicantModel.applicant.dateOfBirth}">
+                            <f:convertDateTime pattern="yyyy-MM-dd" />
+                        </h:inputText>
+
+                    </div>
+                    <div>
+                        <label>Address</label>
+                        <h:inputText value="#{applicantModel.applicant.address}"/>
+
+                    </div>
+                    <div>
+                        <label>Telephone</label>
+                        <h:inputText value="#{applicantModel.applicant.telephone}"/>
+                    </div>
+                    <div>
+                        <label>Department</label>
+                        <h:selectOneMenu value="#{applicantModel.applicant.department}">
+                            <f:selectItem itemValue="Software" itemLabel="Software"/>
+                            <f:selectItem itemValue="Networking" itemLabel="Networking"/>
+                            <f:selectItem itemValue="Management" itemLabel="Management"/>
+                            <f:selectItem itemValue="Marketing" itemLabel="Marketing"/>
+                            <f:selectItem itemValue="Finance" itemLabel="Finance"/>
+
+                        </h:selectOneMenu>
+                    </div>
+                    <div>
+
+                        <h:commandButton style="background-color:royalblue; color:white" value="#{applicantModel.updateapplicant?'Cancel':'Apply'}" action="#{applicantModel.apply()}"/>
+                        
+                        <h:commandButton style="background-color: green; color: white" value="Update your information" action="#{applicantModel.applicantCancel()}" rendered="#{applicantModel.updateapplicant}"/>
+                    </div>
+
+                </h:panelGrid>
+
+            </h:form>
+
+
+
+
+
+        </div>
+
+    </h:body>
+</html>
+
